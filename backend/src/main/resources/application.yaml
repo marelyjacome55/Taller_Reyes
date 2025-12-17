@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    # Use environment variables for credentials in production.
+    # Recommended: set SPRING_DATASOURCE_URL to your pooler or direct DB URL.
+    # Example (pooler):
+    # export SPRING_DATASOURCE_URL="jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require&connectTimeout=10&socketTimeout=30&prepareThreshold=0"
+    # Example (direct):
+    # export SPRING_DATASOURCE_URL="jdbc:postgresql://db.<project-ref>.supabase.co:5432/postgres?sslmode=require&connectTimeout=10&socketTimeout=30"
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require&connectTimeout=10&socketTimeout=30&prepareThreshold=0}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Configuración de Email (compatible con Hotmail/Outlook)
+  mail:
+    host: smtp-mail.outlook.com
+    port: 587
+    username: ${SPRING_MAIL_USERNAME:your-email@hotmail.com}
+    password: ${SPRING_MAIL_PASSWORD:your-app-password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+# Supabase configuration
+supabase:
+  url: ${SUPABASE_URL:https://your-project.supabase.co}
+  anon:
+    key: ${SUPABASE_ANON_KEY:your-anon-key}
+  jwt:
+    secret: ${SUPABASE_JWT_SECRET:your-supabase-jwt-secret-here}
+
+# Scrapy Python service configuration
+scrapy:
+  service:
+    url: ${SCRAPY_SERVICE_URL:http://localhost:8001}
+  cache:
+    ttl:
+      hours: 24
