@@ -1,0 +1,26 @@
+## Example application.yaml (do NOT store secrets in repo)
+# Set these env vars on your machine or CI before running the app.
+
+spring:
+  datasource:
+    # Use the pooler host (recommended) or the direct DB host shown in Supabase Console
+    # Replace <pooler-host> and <db-name> as appropriate.
+    # Example pooler URL (use your project's values):
+    # jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require&connectTimeout=10&socketTimeout=30&prepareThreshold=0
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+# Example export commands (run locally, do not commit secrets):
+# export SPRING_DATASOURCE_URL="jdbc:postgresql://aws-1-us-east-1.pooler.supabase.com:5432/postgres?sslmode=require&connectTimeout=10&socketTimeout=30&prepareThreshold=0"
+# export SPRING_DATASOURCE_USERNAME="postgres"
+# export SPRING_DATASOURCE_PASSWORD="<YOUR_PASSWORD>"

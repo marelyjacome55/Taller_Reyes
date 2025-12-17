@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.0.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.tallerreyes</groupId>
+	<artifactId>cotizaciones</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>cotizaciones</name>
+	<description>Demo project for Spring Boot</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+    		<groupId>org.postgresql</groupId>
+    		<artifactId>postgresql</artifactId>
+    		<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	<dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+		<scope>test</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>jakarta.servlet</groupId>
+		<artifactId>jakarta.servlet-api</artifactId>
+		<scope>test</scope>
+	</dependency>
+
+	<!-- JWT para validar tokens de Supabase -->
+	<dependency>
+		<groupId>io.jsonwebtoken</groupId>
+		<artifactId>jjwt-api</artifactId>
+		<version>0.12.3</version>
+	</dependency>
+	<dependency>
+		<groupId>io.jsonwebtoken</groupId>
+		<artifactId>jjwt-impl</artifactId>
+		<version>0.12.3</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+		<groupId>io.jsonwebtoken</groupId>
+		<artifactId>jjwt-jackson</artifactId>
+		<version>0.12.3</version>
+		<scope>runtime</scope>
+	</dependency>
+
+	<!-- Email (JavaMail para Hotmail/Outlook) -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-mail</artifactId>
+	</dependency>
+
+	<!-- PDF Generation (iText) -->
+	<dependency>
+		<groupId>com.itextpdf</groupId>
+		<artifactId>itextpdf</artifactId>
+		<version>5.5.13.3</version>
+	</dependency>
+
+	<!-- Lombok para reducir boilerplate -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<optional>true</optional>
+	</dependency>
+
+	<!-- Jackson para parsear JSON (Scrapy responses) -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+	</dependency>
+
+</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
