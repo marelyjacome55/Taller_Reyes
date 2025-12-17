@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    env_file: .env
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+
+  scrapy:
+    profiles: ["jobs"]
+    build:
+      context: ./scrapy/scrapy_cotizador
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      # Provide DB URL for Python apps (use non-JDBC format)
+      DATABASE_URL: ${DATABASE_URL}
+    restart: "no"
